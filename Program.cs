@@ -55,7 +55,9 @@ app.MapGet("/api/boards", (DbService service) =>
         boardId = b.BoardID,
         header = b.Header,
         author = b.Author,
-        comments = b.Comments
+        comments = b.Comments,
+        timePosted = b.TimePosted,
+        vote = b.Vote
     });
 });
 

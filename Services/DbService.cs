@@ -22,14 +22,18 @@ namespace Redditto.Services
             {
                 board = new Board { BoardID = 1, Header = "Regler", Author = "Anonymous"};
                 db.Boards.Add(board);
-                db.Boards.Add(new Board { BoardID = 2, Header = "Testtråd", Author = "Synonymous"});
+                db.Boards.Add(new Board { BoardID = 2, Header = "Testtråd", Author = "Synonymous", Vote = 5, TimePosted = DateTime.Now});
+                db.Boards.Add(new Board { BoardID = 3, Header = "Endnu en test", Author = "Antonymous", Vote = 1, TimePosted = DateTime.Now});
+                db.Boards.Add(new Board { BoardID = 4, Header = "Hvad lavver du stadig her", Author = "Mr Troll", Vote = 5000 , TimePosted = DateTime.Now});
             }
 
             Comment comment = db.Comments.FirstOrDefault()!;
             if (comment == null)
             {
-                db.Comments.Add(new Comment { BoardID = 1, Text = "Internettet glemmer ikke", Author = "Anonymous" });
-                db.Comments.Add(new Comment { BoardID = 2, Text = "en test kommentar", Author = "Anonymous" });
+                db.Comments.Add(new Comment { BoardID = 1, Text = "Internettet glemmer ikke", Author = "Anonymous", Vote = -11, Timestamp = DateTime.Now });
+                db.Comments.Add(new Comment { BoardID = 2, Text = "en test kommentar", Author = "Anonymous", Vote = 2, Timestamp = DateTime.Now });
+                db.Comments.Add(new Comment { BoardID = 1, Text = "så der kan ikke slettes", Author = "Anonymous", Vote = 5, Timestamp = DateTime.Now });
+                db.Comments.Add(new Comment { BoardID = 1, Text = "No shit Sherlock", Author = "Mr Troll", Vote = 420, Timestamp = DateTime.Now });
             }
 
             db.SaveChanges();
@@ -40,12 +44,12 @@ namespace Redditto.Services
             {
                 return db.Boards.ToList();
             }
-        
+        /*
             public Board GetBoard(int id)
             {
                 return db.Boards.Include(b => b.Comments).FirstOrDefault(b => b.BoardID == id);
             }
-/*
+
             public List<Author> GetAuthors()
             {
                 return db.Authors.ToList();
