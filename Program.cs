@@ -61,4 +61,33 @@ app.MapGet("/api/boards", (DbService service) =>
     });
 });
 
+app.MapGet("/api/comments", (DbService service) =>
+{
+    return service.GetComments().Select(b => new {
+        commentId = b.CommentID,
+        boardId = b.BoardID,
+        text = b.Text,
+        author = b.Author,
+        timestamp = b.Timestamp,
+        vote = b.Vote 
+    });
+});
+
+app.MapGet("/api/{id}", (DbService service, int id) =>
+{return service.GetBoard(id);
+});
+
+app.MapPost("/api/boards", (DbService service, NewBoardData data) => {
+    string result = service.CreateBoard(data.Header, data.Author, data.TimePosted);
+    return new { message = result };
+});
+
+app.MapPost("/api/comments", (DbService service, NewCommentData data) => {
+    string result = service.CreateComment(data. BoardID, data.Text, data.Author, data.Timestamp);
+    return new { message = result };
+});
+
 app.Run();
+
+record NewBoardData(string Header, string? Author, DateTime TimePosted);
+record NewCommentData(int BoardID, string Text, string? Author, DateTime Timestamp);

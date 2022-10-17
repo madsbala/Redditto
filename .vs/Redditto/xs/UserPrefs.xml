@@ -1,31 +1,24 @@
 ﻿<Properties StartupConfiguration="{5674734A-DA4B-4ABF-8545-9788B4047C7B}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Redditto PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Services/DbService.cs">
+  <MonoDevelop.Ide.ItemProperties.Redditto PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
       <File FileName="Models/Board.cs" />
       <File FileName="Models/Comment.cs" />
+      <File FileName="Services/DbService.cs" />
+      <File FileName="Program.cs" Line="88" Column="4" />
       <File FileName="DbContext/DataContext.cs" />
-      <File FileName="Services/DbService.cs" Line="48" Column="3" />
-      <File FileName="Program.cs" />
-      <File FileName="appsettings.json" />
-      <File FileName="appsettings.Development.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Redditto" expanded="True">
             <Node name="Redditto" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
               <Node name="DbContext" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
               <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -34,4 +27,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
