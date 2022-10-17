@@ -83,7 +83,19 @@ app.MapPost("/api/boards", (DbService service, NewBoardData data) => {
 });
 
 app.MapPost("/api/comments", (DbService service, NewCommentData data) => {
-    string result = service.CreateComment(data. BoardID, data.Text, data.Author, data.Timestamp);
+    string result = service.CreateComment(data.BoardID, data.Text, data.Author, data.Timestamp);
+    return new { message = result };
+});
+
+app.MapPost("/api/boards/{boardid}/upvote", (DbService service, VoteBoard data) =>
+{
+    string result = service.UpvoteBoard(data.BoardID);
+    return new { message = result };
+});
+
+app.MapPost("/api/boards/{boardid}/downvote", (DbService service, VoteBoard data) =>
+{
+    string result = service.DownvoteBoard(data.BoardID);
     return new { message = result };
 });
 
@@ -91,3 +103,4 @@ app.Run();
 
 record NewBoardData(string Header, string? Author, DateTime TimePosted);
 record NewCommentData(int BoardID, string Text, string? Author, DateTime Timestamp);
+record VoteBoard(int BoardID);

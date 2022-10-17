@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 using Redditto.Models;
 using Redditto.DataContext;
@@ -10,6 +12,8 @@ namespace Redditto.Services
     public class DbService
     {
         private BoardContext db { get; }
+
+        private readonly HttpClient http;
 
         public DbService(BoardContext db)
         {
@@ -71,6 +75,23 @@ namespace Redditto.Services
             db.Comments.Add(new Comment { BoardID = boardId, Text = text, Author = author, Timestamp = timestamp = DateTime.Now });
             db.SaveChanges();
             return "Comment created";
+        }
+
+        public string UpvoteBoard(int id) //Kan upvote 
+        {
+            
+         var votes = db.Boards.Where(b => b.BoardID == id).FirstOrDefault();
+            votes.Vote = votes.Vote + 1;
+         db.SaveChanges();
+         return "Board upvoted";
+        }
+        public string DownvoteBoard(int id) //virker stadig ikke
+        {
+
+            var votes = db.Boards.Where(b => b.BoardID == id).FirstOrDefault();
+            votes.Vote = votes.Vote - 1;
+            db.SaveChanges();
+            return "Board downvoted";
         }
     }
 }
