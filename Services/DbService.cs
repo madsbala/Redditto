@@ -78,20 +78,35 @@ namespace Redditto.Services
         }
 
         public string UpvoteBoard(int id) //Kan upvote 
-        {
-            
+        {    
          var votes = db.Boards.Where(b => b.BoardID == id).FirstOrDefault();
             votes.Vote = votes.Vote + 1;
          db.SaveChanges();
          return "Board upvoted";
         }
+
         public string DownvoteBoard(int id) //virker stadig ikke
         {
-
             var votes = db.Boards.Where(b => b.BoardID == id).FirstOrDefault();
             votes.Vote = votes.Vote - 1;
             db.SaveChanges();
             return "Board downvoted";
+        }
+
+        public string UpvoteComment(int id) //Kan upvote 
+        {
+            var votes = db.Comments.Where(b => b.CommentID == id).FirstOrDefault();
+            votes.Vote = votes.Vote + 1;
+            db.SaveChanges();
+            return "Comment upvoted";
+        }
+
+        public string DownvoteComment(int id) //virker stadig ikke
+        {
+            var votes = db.Comments.Where(b => b.CommentID == id).FirstOrDefault();
+            votes.Vote = votes.Vote - 1;
+            db.SaveChanges();
+            return "Comment downvoted";
         }
     }
 }

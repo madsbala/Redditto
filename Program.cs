@@ -73,7 +73,7 @@ app.MapGet("/api/comments", (DbService service) =>
     });
 });
 
-app.MapGet("/api/{id}", (DbService service, int id) =>
+app.MapGet("/api/boards/{id}", (DbService service, int id) =>
 {return service.GetBoard(id);
 });
 
@@ -87,20 +87,35 @@ app.MapPost("/api/comments", (DbService service, NewCommentData data) => {
     return new { message = result };
 });
 
-app.MapPost("/api/boards/{boardid}/upvote", (DbService service, VoteBoard data) =>
+app.MapPost("/api/boards/{boardid}/upvote", (DbService service, int boardid) =>
 {
-    string result = service.UpvoteBoard(data.BoardID);
+    string result = service.UpvoteBoard(boardid);
     return new { message = result };
 });
 
-app.MapPost("/api/boards/{boardid}/downvote", (DbService service, VoteBoard data) =>
+app.MapPost("/api/boards/{boardid}/downvote", (DbService service, int boardid) =>
 {
-    string result = service.DownvoteBoard(data.BoardID);
+    string result = service.DownvoteBoard(boardid);
     return new { message = result };
 });
+
+//Comment votes ikke testet endnu, virker nok ikke
+
+app.MapPost("/api/boards/comments/{commentid}/upvote", (DbService service, int commentid) =>
+{
+    string result = service.UpvoteComment(commentid);
+    return new { message = result };
+});
+
+app.MapPost("/api/boards/comments/{commentid}/downvote", (DbService service, int commentid) =>
+{
+    string result = service.DownvoteComment(commentid);
+    return new { message = result };
+});
+
+//-----------------------
 
 app.Run();
 
 record NewBoardData(string Header, string? Author, DateTime TimePosted);
 record NewCommentData(int BoardID, string Text, string? Author, DateTime Timestamp);
-record VoteBoard(int BoardID);
