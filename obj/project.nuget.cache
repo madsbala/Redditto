@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Qs9Fe5iEHgVwUQlC92dajfqBMLLnK55Ix0ADcnA1+mlE3a20ddGUfpwt9NxX+0gn8/GDUTB0uU4jEqBbe/gi1Q==",
+  "dgSpecHash": "kChskaPvGA55jTW8rppEagw3g+7bukSMdMFF98vW5Zoq6aCnoJQjQrLE2j6NVd7mJCxMzhi3sBNZ8u1/uatuwA==",
   "success": true,
-  "projectFilePath": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto.csproj",
+  "projectFilePath": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto/Redditto.csproj",
   "expectedPackageFiles": [
     "/Users/madsbaggelarsen/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/madsbaggelarsen/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.10/microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.10.nupkg.sha512",

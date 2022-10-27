@@ -87,13 +87,13 @@ app.MapPost("/api/comments", (DbService service, NewCommentData data) => {
     return new { message = result };
 });
 
-app.MapPost("/api/boards/{boardid}/upvote", (DbService service, int boardid) =>
+app.MapPost("/api/boards/{boardid}/upvote/", (DbService service, int boardid) =>
 {
     string result = service.UpvoteBoard(boardid);
     return new { message = result };
 });
 
-app.MapPost("/api/boards/{boardid}/downvote", (DbService service, int boardid) =>
+app.MapPost("/api/boards/{boardid}/downvote/", (DbService service, int boardid) =>
 {
     string result = service.DownvoteBoard(boardid);
     return new { message = result };

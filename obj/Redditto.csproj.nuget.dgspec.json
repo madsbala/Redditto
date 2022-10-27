@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto.csproj": {}
+    "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto/Redditto.csproj": {}
   },
   "projects": {
-    "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto.csproj": {
+    "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto/Redditto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto.csproj",
+        "projectUniqueName": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto/Redditto.csproj",
         "projectName": "Redditto",
-        "projectPath": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto.csproj",
+        "projectPath": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto/Redditto.csproj",
         "packagesPath": "/Users/madsbaggelarsen/.nuget/packages/",
-        "outputPath": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/obj/",
+        "outputPath": "/Users/madsbaggelarsen/Desktop/Miniprojekt/Redditto/Redditto/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/madsbaggelarsen/.nuget/NuGet/NuGet.Config"
