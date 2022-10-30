@@ -20,7 +20,9 @@ namespace Redditto.Services
             this.db = db;
         }
 
-        public void SeedData()
+        //Vores Seed-data
+
+        public void SeedData() 
         {
             Board board = db.Boards.FirstOrDefault()!;
             if (board == null)
@@ -45,21 +47,36 @@ namespace Redditto.Services
 
         }
 
+        //Henter alle boards og sætter dem på en liste
+
         public List<Board> GetBoards()
         {
             return db.Boards.ToList();
         }
+
+        //Henter alle comments og sætter dem på en liste (bruges ikke)
 
         public List<Comment> GetComments()
         {
             return db.Comments.ToList();
         }
 
+        //Henter comments til et specifikt board og sætter dem på en liste
+
+        public List<Comment> GetBoardComments(int id)
+        {
+            return db.Comments.Where(b => b.BoardID == id).ToList();
+        }
+
+        //Henter specifikt board
+
         public Board GetBoard(int id)
         {
             return db.Boards.FirstOrDefault(b => b.BoardID == id);
         }
-        
+
+        //Opretter et nyt board - hvis author er tom sættes den til at være 'Anonymous'
+
         public string CreateBoard(string header, string author, DateTime timePosted )
         {
             if (author == "") {author = "Anonymous";};
@@ -68,7 +85,8 @@ namespace Redditto.Services
             return "Board created";
         }
 
-        
+        //Opretter en ny comment- hvis author er tom sættes den til at være 'Anonymous'
+
         public string CreateComment(int boardId, string text, string author, DateTime timestamp )
         {
             if (author == "") {author = "Anonymous";};
@@ -77,7 +95,9 @@ namespace Redditto.Services
             return "Comment created";
         }
 
-        public string UpvoteBoard(int id) //Kan upvote 
+        //Kan upvote board
+
+        public string UpvoteBoard(int id) 
         {    
          var votes = db.Boards.Where(b => b.BoardID == id).FirstOrDefault();
             votes.Vote = votes.Vote + 1;
@@ -85,7 +105,9 @@ namespace Redditto.Services
          return "Board upvoted";
         }
 
-        public string DownvoteBoard(int id) //virker stadig ikke
+        //Kan downvote board
+
+        public string DownvoteBoard(int id) 
         {
             var votes = db.Boards.Where(b => b.BoardID == id).FirstOrDefault();
             votes.Vote = votes.Vote - 1;
@@ -93,7 +115,9 @@ namespace Redditto.Services
             return "Board downvoted";
         }
 
-        public string UpvoteComment(int id) //Kan upvote 
+        //Kan upvote comment
+
+        public string UpvoteComment(int id) 
         {
             var votes = db.Comments.Where(b => b.CommentID == id).FirstOrDefault();
             votes.Vote = votes.Vote + 1;
@@ -101,7 +125,9 @@ namespace Redditto.Services
             return "Comment upvoted";
         }
 
-        public string DownvoteComment(int id) //virker stadig ikke
+        //Kan downvote comment
+
+        public string DownvoteComment(int id) 
         {
             var votes = db.Comments.Where(b => b.CommentID == id).FirstOrDefault();
             votes.Vote = votes.Vote - 1;

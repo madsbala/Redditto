@@ -1,11 +1,15 @@
 ﻿<Properties StartupConfiguration="{5674734A-DA4B-4ABF-8545-9788B4047C7B}|https">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Services/DbService.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Models/Board.cs" Line="1" Column="1" />
-      <File FileName="Models/Comment.cs" Line="1" Column="1" />
-      <File FileName="Services/DbService.cs" Line="110" Column="10" />
-      <File FileName="Program.cs" Line="88" Column="4" />
+      <File FileName="Models/Board.cs" />
+      <File FileName="Models/Comment.cs" />
+      <File FileName="Services/DbService.cs" />
+      <File FileName="Program.cs" Line="68" Column="1" />
       <File FileName="DbContext/DataContext.cs" />
+      <File FileName="appsettings.Development.json" />
+      <File FileName="appsettings.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,21 +19,18 @@
               <Node name="DbContext" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="DbService.cs" selected="True" />
-              </Node>
+              <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Redditto PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

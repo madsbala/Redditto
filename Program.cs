@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http.Json;
 
 using Redditto.DataContext;
 using Redditto.Services;
+using Redditto.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +50,13 @@ app.MapGet("/", (DbService service) =>
     return new { message = "Hello World!" };
 });
 
+
+//---- her starter vores egen kode ------
+
+//FOR FORKLARING LÆS README.cs
+
+// henter alle boards
+
 app.MapGet("/api/boards", (DbService service) =>
 {
     return service.GetBoards().Select(b => new {
@@ -61,31 +69,33 @@ app.MapGet("/api/boards", (DbService service) =>
     });
 });
 
-app.MapGet("/api/comments", (DbService service) =>
-{
-    return service.GetComments().Select(b => new {
-        commentId = b.CommentID,
-        boardId = b.BoardID,
-        text = b.Text,
-        author = b.Author,
-        timestamp = b.Timestamp,
-        vote = b.Vote 
-    });
+//henter alle comments til et board
+
+app.MapGet("/api/boards/{id}/comments", (DbService service, int id) =>
+{return service.GetComments().Where(b => b.BoardID == id).ToList() ;
 });
+
+//henter et specifikt board på ID
 
 app.MapGet("/api/boards/{id}", (DbService service, int id) =>
 {return service.GetBoard(id);
 });
+
+//Oprettelse af boards
 
 app.MapPost("/api/boards", (DbService service, NewBoardData data) => {
     string result = service.CreateBoard(data.Header, data.Author, data.TimePosted);
     return new { message = result };
 });
 
+//Oprettelse af comments
+
 app.MapPost("/api/comments", (DbService service, NewCommentData data) => {
     string result = service.CreateComment(data.BoardID, data.Text, data.Author, data.Timestamp);
     return new { message = result };
 });
+
+//Board upvotes og downvotes
 
 app.MapPost("/api/boards/{boardid}/upvote/", (DbService service, int boardid) =>
 {
@@ -99,7 +109,7 @@ app.MapPost("/api/boards/{boardid}/downvote/", (DbService service, int boardid) 
     return new { message = result };
 });
 
-//Comment votes ikke testet endnu, virker nok ikke
+//Comment upvotes og downvotes
 
 app.MapPost("/api/boards/comments/{commentid}/upvote", (DbService service, int commentid) =>
 {
@@ -119,3 +129,5 @@ app.Run();
 
 record NewBoardData(string Header, string? Author, DateTime TimePosted);
 record NewCommentData(int BoardID, string Text, string? Author, DateTime Timestamp);
+
+//FOR FORKLARING LÆS README.cs
