@@ -1,8 +1,20 @@
 ﻿/*
 
+Projektet er lavet af Anders Væde, Daniel Brinkland og Mads Bagge Larsen
+
+
+
+Det er et valg at vi ikke har tilføjet front-end-delen, da vi ikke kunne få den til at virke med vores API
+
+Men API'en virker og er testet igennem API-kald med Postman.
+
+Alle stier og eksempler er tilføjet et stykke kode, så dette kan testes
+
+
+
 Programmet kan køres ved at køre en 'dotnet ef database update' og en 'dotnet run'
 
-Vi kunne ikke få mere på vores front-end ud over en liste med vores boards, men resten virker igennem API-kald i Postman
+
 
 Der er som udgangspunkt 4 boards og 4 comments i Seed-dataen, som ligger i DbService
 

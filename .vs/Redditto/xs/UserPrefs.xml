@@ -6,7 +6,7 @@
       <File FileName="Models/Board.cs" />
       <File FileName="Models/Comment.cs" />
       <File FileName="Services/DbService.cs" />
-      <File FileName="Program.cs" Line="68" Column="1" />
+      <File FileName="Program.cs" Line="52" Column="1" />
       <File FileName="DbContext/DataContext.cs" />
       <File FileName="appsettings.Development.json" />
       <File FileName="appsettings.json" />
